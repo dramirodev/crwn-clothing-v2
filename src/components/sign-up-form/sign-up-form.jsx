@@ -32,7 +32,7 @@ export function SignUpForm() {
       return;
     }
     try {
-      const {user} = await createAuthUserWithEmailAndPassword(email, password);
+      const user = await createAuthUserWithEmailAndPassword(email, password);
       await createUserDocumentFromAuth(user, {displayName});
       resetForm();
     } catch (error) {
@@ -49,10 +49,25 @@ export function SignUpForm() {
         <h2>Don't have an account?</h2>
         <span>Sign up with your email and password</span>
         <form onSubmit={handleSubmit}>
-          <FormInput type="text" onChange={handleChange} required name="displayName" value={displayName} label="Display name"/>
+          <FormInput type="text"
+                     onChange={handleChange}
+                     required
+                     name="displayName"
+                     value={displayName}
+                     label="Display name"/>
           <FormInput onChange={handleChange} type="email" required name="email" value={email} label="E-mail"/>
-          <FormInput type="password" onChange={handleChange} required name="password" value={password} label="Password"/>
-          <FormInput type="password" onChange={handleChange} required name="confirmPassword" value={confirmPassword} label="Confirm password"/>
+          <FormInput type="password"
+                     onChange={handleChange}
+                     required
+                     name="password"
+                     value={password}
+                     label="Password"/>
+          <FormInput type="password"
+                     onChange={handleChange}
+                     required
+                     name="confirmPassword"
+                     value={confirmPassword}
+                     label="Confirm password"/>
           <Button type="submit">Sign Up</Button>
         </form>
       </div>
