@@ -4,7 +4,7 @@ import {Link, Outlet} from 'react-router-dom';
 import {ReactComponent as CrwnLogo} from '../../assets/crown.svg';
 import {CartDropdown} from "../../components/cart-dropdown/cart-dropdown";
 import {CartIcon} from "../../components/cart-icon/cart-icon";
-import {ToggleCartContext} from "../../context/toggle-cart.context";
+import {CartContext} from "../../context/cart-context/cart.context";
 import {UserContext} from "../../context/user.context";
 import {signOutAuthUser} from "../../utils/firebase/firebase.utils";
 
@@ -12,7 +12,7 @@ import './navigation.styles.scss';
 
 const Navigation = () => {
   const {currentUser} = useContext(UserContext);
-  const {showCart} = useContext(ToggleCartContext);
+  const {showCart} = useContext(CartContext);
 
   return (
       <Fragment>
