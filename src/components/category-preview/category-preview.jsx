@@ -1,25 +1,25 @@
-import {useNavigate} from "react-router-dom";
+import {NavLink} from "../../routes/navigation/navigation.styles";
 import ProductCard from "../product-card/product-card";
-import "./category-preview.styles.scss";
+import "./category-preview.styles";
+import {CategoryPreviewContainer, PreviewContainer, TitleContainer} from "./category-preview.styles";
 
 export function CategoryPreview({title, products}) {
-  const navigate = useNavigate();
-
-  const navigateToCategory = () => {
-    navigate(`/shop/${title}`);
-  };
 
   return (
-      <div className="category-preview-container">
-        <h2><span onClick={navigateToCategory}>{title.toUpperCase()}</span></h2>
-        <div className="preview">
+      <CategoryPreviewContainer>
+        <TitleContainer>
+          <NavLink to={`/shop/${title}`}>
+            {title.toUpperCase()}
+          </NavLink>
+        </TitleContainer>
+        <PreviewContainer>
           {
             products.filter((_, idx) => idx < 4)
                 .map((product) => (
                     <ProductCard key={product.id} product={product}/>
                 ))
           }
-        </div>
-      </div>
+        </PreviewContainer>
+      </CategoryPreviewContainer>
   );
 }
