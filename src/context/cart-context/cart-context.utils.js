@@ -1,5 +1,5 @@
 export function existingItem(cartItems, item) {
-  return cartItems.find(cartItem => cartItem.id === item.id);
+  return cartItems?.find(cartItem => cartItem.id === item.id);
 }
 
 export function addCartItem(cartItems, cartItemToAdd) {
@@ -28,4 +28,16 @@ export function decrementCartItem(cartItems, cartItemToDecrement) {
     }
     return cartItem;
   });
+}
+
+export function calculateTotal(cartItems) {
+  return cartItems.reduce((accumulator, cartItem) => {
+    return accumulator + cartItem.quantity * cartItem.price;
+  }, 0);
+}
+
+export function calculateTotalItems(cartItems) {
+  return cartItems.reduce((accumulator, cartItem) => {
+    return accumulator + cartItem.quantity;
+  }, 0);
 }

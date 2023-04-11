@@ -9,20 +9,16 @@ import {
 } from "./category-item.styles";
 
 const CategoryItem = ({category}) => {
-  const {imageUrl, title} = category;
+  const {imageUrl, title, route} = category;
   const navigate = useNavigate();
 
-  const navigateToCategory = () => {
-    navigate(`/shop/${title}`);
+  const onNavigateToCategory = () => {
+    navigate(`/${route}`);
   };
   return (
-      <CategoryItemContainer>
-        <BackgroundImageContainer
-            style={{
-              backgroundImage: `url(${imageUrl})`,
-            }}
-        />
-        <CategoryBodyContainer onClick={navigateToCategory}>
+      <CategoryItemContainer onClick={onNavigateToCategory}>
+        <BackgroundImageContainer imageUrl={imageUrl}/>
+        <CategoryBodyContainer>
           <TitleContainer>{title}</TitleContainer>
           <NameContainer>Shop Now</NameContainer>
         </CategoryBodyContainer>
