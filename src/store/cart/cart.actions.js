@@ -4,24 +4,33 @@ import {
   calculateTotalItems,
   decrementCartItem,
   removeCartItem
-} from "../../context/cart-context/cart-context.utils";
+} from "../../utils/cart/cart.utils";
 import {createAction} from "../../utils/reducers/reducer.utils";
 import {CART_ACTIONS_TYPES} from "./cart.types";
 
-export const toggleCart = (isOpen) => createAction(CART_ACTIONS_TYPES.TOGGLE_CART, isOpen);
+export function toggleCart(isOpen) {
+  return createAction(CART_ACTIONS_TYPES.TOGGLE_CART, isOpen);
+}
 
-export const updateCartItems = (cartItems) => {
+export function updateCartItems(cartItems) {
   const payload = {
-    cartItems,
-    totalQuantity: calculateTotalItems(cartItems),
-    cartTotalPrice: calculateTotal(cartItems)
+    cartItems, totalQuantity: calculateTotalItems(cartItems), cartTotalPrice: calculateTotal(cartItems)
   };
   return createAction(CART_ACTIONS_TYPES.SET_ITEMS_TO_CART, payload);
-};
+}
 
-export const addItemToCart = (cartItems, item) => updateCartItems(addCartItem(cartItems, item));
+export function addItemToCart(cartItems, item) {
+  const newCartItems = addCartItem(cartItems, item);
+  updateCartItems(newCartItems);
+}
 
-export const removeItemFromCart = (cartItems, item) => updateCartItems(removeCartItem(cartItems, item));
+export function removeItemFromCart(cartItems, item) {
+  const newCartItems = removeCartItem(cartItems, item);
+  updateCartItems(newCartItems);
+}
 
-export const decrementQuantityByOneItem = (cartItems, item) => updateCartItems(decrementCartItem(cartItems, item));
+export function decrementQuantityByOneItem(cartItems, item) {
+  const newCartItems = decrementCartItem(cartItems, item);
+  updateCartItems(newCartItems);
+}
 
