@@ -1,14 +1,17 @@
-import {Fragment, useContext, useEffect, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
+import {useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import ProductCard from "../../components/product-card/product-card";
-import {CategoriesContext} from "../../context/categories.context";
+import {selectCategoriesMap} from "../../store/categories/categories.selectors";
 
 import {CategoryPageContainer} from "./category-page.styles";
 
 export function CategoryPage() {
+  const categoriesMap = useSelector(selectCategoriesMap);
   const {category} = useParams();
-  const {categoriesMap} = useContext(CategoriesContext);
+
   const [products, setProducts] = useState(categoriesMap[category]);
+
 
   useEffect(() => {
     if (categoriesMap[category]) {
@@ -17,6 +20,7 @@ export function CategoryPage() {
       setProducts([]);
     }
   }, [category, categoriesMap]);
+
   return (
       <Fragment>
         <h1 className="category-title">{category.toUpperCase()}</h1>
