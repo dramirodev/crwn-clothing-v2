@@ -3,6 +3,8 @@ export function existingItem(cartItems, item) {
 }
 
 export function addCartItem(cartItems, cartItemToAdd) {
+  console.log('addCartItem', cartItems, cartItemToAdd);
+
   if (existingItem(cartItems, cartItemToAdd)) {
     return cartItems.map(cartItem => {
       if (cartItem.id === cartItemToAdd.id) {
