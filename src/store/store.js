@@ -1,5 +1,3 @@
-// root reducer
-
 import {applyMiddleware, compose, createStore} from "redux";
 import {logger} from "redux-logger/src";
 import {rootReducer} from "./root.reducer";

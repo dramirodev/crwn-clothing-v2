@@ -9,12 +9,12 @@
 //
 // export function CategoriesProvider({children}) {
 //   const [productSelected, setProductSelected] = useState(null);
-//   const [categoriesMap, setCategoriesMap] = useState({});
+//   const [categoriesMap, setCategories] = useState({});
 //
 //   useEffect(() => {
 //     const categoriesMap = async () => {
 //       const categoryMap = await getCategoriesAndDocuments();
-//       setCategoriesMap(categoryMap);
+//       setCategories(categoryMap);
 //     }
 //
 //     categoriesMap();
