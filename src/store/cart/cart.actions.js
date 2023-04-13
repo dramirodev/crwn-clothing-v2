@@ -8,7 +8,7 @@ import {
 import {createAction} from "../../utils/reducers/reducer.utils";
 import {CART_ACTIONS_TYPES} from "./cart.types";
 
-export const toggleCart = () => createAction(CART_ACTIONS_TYPES.TOGGLE_CART);
+export const toggleCart = (isOpen) => createAction(CART_ACTIONS_TYPES.TOGGLE_CART, isOpen);
 
 export const updateCartItems = (cartItems) => {
   const payload = {
