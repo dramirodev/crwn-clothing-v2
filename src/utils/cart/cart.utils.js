@@ -32,7 +32,7 @@ export function decrementCartItem(cartItems, cartItemToDecrement) {
   });
 }
 
-export function calculateTotal(cartItems) {
+export function calculateTotalQuantity(cartItems) {
   return cartItems.reduce((accumulator, cartItem) => {
     return accumulator + cartItem.quantity * cartItem.price;
   }, 0);

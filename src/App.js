@@ -7,7 +7,8 @@ import {Checkout} from "./routes/check-out/checkout";
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
 import {Shop} from "./routes/shop/shop";
-import {setCurrentUser} from "./store/user/user.actions";
+import {setCurrentUser} from "./store/user/user.reducer";
+
 import {createUserDocumentFromAuth, onAuthStateChangedListener} from "./utils/firebase/firebase.utils";
 
 
@@ -20,7 +21,11 @@ const App = () => {
       if (user) {
         createUserDocumentFromAuth(user);
       }
-      dispatch(setCurrentUser(user));
+
+      const pickedUser = user && (({accessToken, displayName, email, photoURL, uid}) => ({
+        accessToken, displayName, email, photoURL, uid
+      }))(user);
+      dispatch(setCurrentUser(pickedUser));
     });
     return unsubscribe;
   }, [dispatch]);

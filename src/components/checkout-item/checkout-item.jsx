@@ -1,7 +1,6 @@
 import {useCallback} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {addItemToCart, decrementQuantityByOneItem, removeItemFromCart} from "../../store/cart/cart.actions";
-import {selectCartItems} from "../../store/cart/cart.selectors";
+import {useDispatch} from "react-redux";
+import {addItemToCart, decrementQuantityByOneItem, removeItemFromCart} from "../../store/cart/cart.reducer";
 import "./checkout-item.styles";
 import {
   ArrowContainer,
@@ -18,19 +17,18 @@ import {
 export function CheckoutItem({item}) {
   const {name, imageUrl, price, quantity} = item;
   const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems);
 
   const incrementItemHandler = useCallback(() => {
-    dispatch(addItemToCart(cartItems, item));
-  }, [dispatch, cartItems, item]);
+    dispatch(addItemToCart(item));
+  }, [dispatch, item]);
 
   const removeItemHandler = useCallback(() => {
-    dispatch(removeItemFromCart(cartItems, item));
-  }, [dispatch, cartItems, item]);
+    dispatch(removeItemFromCart(item));
+  }, [dispatch, item]);
 
   const decrementItemHandler = useCallback(() => {
-    dispatch(decrementQuantityByOneItem(cartItems, item));
-  }, [dispatch, cartItems, item]);
+    dispatch(decrementQuantityByOneItem(item));
+  }, [dispatch, item]);
 
   return (<CheckoutItemContainer>
         <ImageContainer>
