@@ -29,4 +29,6 @@ const composedEnhancer = (process.env.NODE_ENV !== 'production' && window && win
 const composedEnhancers = composedEnhancer(applyMiddleware(...middleWares));
 export const store = createStore(persistedReducer, undefined, composedEnhancers);
 
+export type AppDispatch = typeof store.dispatch
+
 export const persistor = persistStore(store);

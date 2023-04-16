@@ -15,6 +15,7 @@ export interface Category {
   title: string;
   imageUrl: string;
   items: CategoryItem[];
+  route: string;
 }
 
 export type CategoryMap = Record<string, CategoryItem[]>;

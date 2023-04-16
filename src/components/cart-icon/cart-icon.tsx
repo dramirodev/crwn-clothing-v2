@@ -1,9 +1,9 @@
-import {useDispatch, useSelector} from "react-redux";
-import {toggleCart} from "../../store/cart/cart.actions";
-import {selectCartShow, selectCartTotalQuantity} from "../../store/cart/cart.selectors";
-import {CartIconContainer, ItemCountContainer, ShoppingIconContainer} from "./cart-icon.styles";
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleCart } from '../../store/cart/cart.actions';
+import { selectCartShow, selectCartTotalQuantity } from '../../store/cart/cart.selectors';
+import { CartIconContainer, ItemCountContainer, ShoppingIconContainer } from './cart-icon.styles';
 
-export function CartIcon() {
+export function CartIcon () {
   const dispatch = useDispatch();
   const totalQuantity = useSelector(selectCartTotalQuantity);
   const showCart = useSelector(selectCartShow);

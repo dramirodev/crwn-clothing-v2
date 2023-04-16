@@ -1,7 +1,14 @@
 import CategoryItem from '../category-item/category-item.component';
-import {DirectoryMenuContainer} from "./directory.styles";
+import { DirectoryMenuContainer } from './directory.styles';
 
-const categories = [
+export type DirectoryCategory = {
+  id: number;
+  title: string;
+  imageUrl: string;
+  route: string;
+};
+
+const categories: DirectoryCategory[] = [
   {
     id: 1,
     title: 'hats',
@@ -36,11 +43,11 @@ const categories = [
 
 const Directory = () => {
   return (
-      <DirectoryMenuContainer>
-        {categories.map((category) => (
-            <CategoryItem key={category.id} category={category}/>
-        ))}
-      </DirectoryMenuContainer>
+    <DirectoryMenuContainer>
+      {categories.map((category) => (
+        <CategoryItem key={category.id} category={category}/>
+      ))}
+    </DirectoryMenuContainer>
   );
 };
 

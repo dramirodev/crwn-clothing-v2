@@ -6,8 +6,8 @@ const Home = () => {
 
   return (
     <div>
-      <Directory />
-      <Outlet />
+      <Directory/>
+      <Outlet/>
     </div>
   );
 };
