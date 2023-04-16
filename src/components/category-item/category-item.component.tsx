@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DirectoryCategory } from '../directory/directory.component';
 import './category-item.styles';

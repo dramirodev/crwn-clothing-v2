@@ -1,8 +1,6 @@
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-
-// @ts-ignore
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import { CartDropdown } from '../../components/cart-dropdown/cart-dropdown';
 import { CartIcon } from '../../components/cart-icon/cart-icon';
