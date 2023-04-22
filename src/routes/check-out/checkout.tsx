@@ -33,12 +33,14 @@ export function Checkout () {
             <span>Remove</span>
           </HeaderBlockContainer>
         </CheckoutHeaderContainer>
-        {
-          cartItems.map((cartItem) =>
-              <CheckoutItem item={cartItem} key={cartItem.id}/>
-          )
-        }
-        <TotalContainer>Total: {cartTotalPrice} $</TotalContainer>
-      </CheckoutPageContainer>
+      {
+        cartItems.map((cartItem) =>
+          <CheckoutItem item={cartItem} key={cartItem.id}/>
+        )
+      }
+      <TotalContainer>Total: {cartTotalPrice} $</TotalContainer>
+    </CheckoutPageContainer>
   );
 }
+
+export default Checkout;

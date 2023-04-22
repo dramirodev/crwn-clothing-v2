@@ -19,3 +19,5 @@ export function Shop () {
     </Routes>
   );
 }
+
+export default Shop;
